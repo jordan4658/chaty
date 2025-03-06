@@ -524,6 +524,7 @@ class CHT_Admin_Base
      */
     public function enqueue_styles($page)
     {
+        $minified = CHT_DEV_MODE ? '' : '.min';
         if ($page == 'toplevel_page_chaty-app' || $page == 'chaty_page_chaty-contact-form-feed' || $page == "chaty_page_chaty-upgrade") {
             $queryArgs = [
                 'family' => 'Rubik:400,700|Oswald:400,600',
@@ -538,9 +539,9 @@ class CHT_Admin_Base
                 wp_enqueue_style('jquery-ui-css', plugins_url('../admin/assets/css/datepicker.min.css', __FILE__), [], CHT_VERSION);
             }
 
-            wp_enqueue_style($this->pluginSlug, plugins_url('../admin/assets/css/cht-style.min.css', __FILE__), [], CHT_VERSION);
+            wp_enqueue_style($this->pluginSlug, plugins_url('../admin/assets/css/cht-style'.esc_attr($minified).'.css', __FILE__), [], CHT_VERSION);
             wp_enqueue_style($this->pluginSlug."-tailwind", plugins_url('../admin/assets/css/app.css', __FILE__), [], CHT_VERSION);
-            wp_enqueue_style($this->pluginSlug."-preview", plugins_url('../admin/assets/css/preview.css', __FILE__), [], CHT_VERSION);
+            wp_enqueue_style($this->pluginSlug."-preview", plugins_url('../admin/assets/css/preview'.esc_attr($minified).'.css', __FILE__), [], CHT_VERSION);
         }
 
         if ($page == "chaty_page_chaty-upgrade" || $page == "chaty_page_widget-analytics") {
@@ -552,7 +553,7 @@ class CHT_Admin_Base
         }
 
         if($page == "chaty_page_chaty-app-upgrade") {
-            wp_enqueue_style($this->pluginSlug, plugins_url('../admin/assets/css/pricing-table.css', __FILE__), [], CHT_VERSION);
+            wp_enqueue_style($this->pluginSlug, plugins_url('../admin/assets/css/pricing-table'.esc_attr($minified).'.css', __FILE__), [], CHT_VERSION);
             $queryArgs = [
                 'family' => 'Poppins:wght@400;500;600;700&display=swap',
                 'subset' => 'latin,latin-ext',
@@ -590,6 +591,7 @@ class CHT_Admin_Base
      */
     public function enqueue_scripts($page)
     {
+        $minified = CHT_DEV_MODE ? '' : '.min';
         if ($page == 'chaty_page_widget-analytics' || $page == "chaty_page_chaty-contact-form-feed") {
             wp_enqueue_script('jquery-ui-datepicker');
             return;
@@ -617,8 +619,8 @@ class CHT_Admin_Base
         // WP change this
         wp_enqueue_editor();
         wp_enqueue_media();
-        wp_enqueue_script($this->pluginSlug.'chaty', plugins_url('../admin/assets/js/cht-scripts.min.js', __FILE__), ['jquery', 'wp-color-picker', 'jquery-ui-draggable', 'jquery-ui-droppable', 'jquery-ui-sortable', 'wp-hooks'], CHT_VERSION, true);
-        wp_enqueue_script($this->pluginSlug.'preview', plugins_url('../admin/assets/js/preview.min.js', __FILE__), ['jquery'], CHT_VERSION, true);
+        wp_enqueue_script($this->pluginSlug.'chaty', plugins_url('../admin/assets/js/cht-scripts'.esc_attr($minified).'.js', __FILE__), ['jquery', 'wp-color-picker', 'jquery-ui-draggable', 'jquery-ui-droppable', 'jquery-ui-sortable', 'wp-hooks'], CHT_VERSION, true);
+        wp_enqueue_script($this->pluginSlug.'preview', plugins_url('../admin/assets/js/preview'.esc_attr($minified).'.js', __FILE__), ['jquery'], CHT_VERSION, true);
         wp_enqueue_script($this->pluginSlug.'acolorpicker', plugins_url('../admin/assets/js/acolorpicker.js', __FILE__), ['jquery'], CHT_VERSION, true);
         wp_enqueue_script($this->pluginSlug.'widget-script', plugins_url('../admin/assets/js/app.js', __FILE__), ['jquery', 'wp-hooks'], CHT_VERSION, true);
 
@@ -2488,7 +2490,7 @@ class CHT_Admin_Base
         if (empty($textareaText)) {
             $error        = [
                 "key"     => "textarea_text",
-                "message" => esc_attr__("Please enter your message", "wcp"),
+                "message" => esc_html__("Please enter your message", "chaty"),
             ];
             $errorArray[] = $error;
         }
@@ -2496,7 +2498,7 @@ class CHT_Admin_Base
         if (empty($userEmail)) {
             $error        = [
                 "key"     => "user_email",
-                "message" => sprintf($errorMessage, esc_attr__("Email", "wcp")),
+                "message" => sprintf($errorMessage, esc_attr__("Email", "chaty")),
             ];
             $errorArray[] = $error;
         } else if (!filter_var($userEmail, FILTER_VALIDATE_EMAIL)) {

@@ -229,14 +229,14 @@ if ( $data && ! is_wp_error( $data ) ) {
                                         esc_attr($plugin['slug']),
                                         esc_url($status['url']),
                                         // translators: %s: Plugin name and version.
-                                        esc_attr(sprintf(esc_html__('Install %s now', 'folders'), $name)),
+                                        esc_attr(sprintf(esc_html__('Install %s now', 'chaty'), $name)),
                                         esc_attr($name),
                                         esc_html__( 'Install Now', "chaty")
                                     );
                                 } else {
                                     $action_links[] = sprintf(
                                         '<button type="button" class="button button-disabled" disabled="disabled">%s</button>',
-                                        esc_html__('Cannot Install', 'folders')
+                                        esc_html__('Cannot Install', 'chaty')
                                     );
                                 }
                             }
@@ -251,14 +251,14 @@ if ( $data && ! is_wp_error( $data ) ) {
                                         esc_attr($plugin['slug']),
                                         esc_url($status['url']),
                                         // translators: %s: Plugin name and version.
-                                        esc_attr(sprintf(esc_html__('Update %s now', 'folders'), $name)),
+                                        esc_attr(sprintf(esc_html__('Update %s now', 'chaty'), $name)),
                                         esc_attr($name),
                                         esc_html__( 'Update Now', "chaty")
                                     );
                                 } else {
                                     $action_links[] = sprintf(
                                         '<button type="button" class="button button-disabled" disabled="disabled">%s</button>',
-                                        esc_html__('Cannot Update', 'folders')
+                                        esc_html__('Cannot Update', 'chaty')
                                     );
                                 }
                             }
@@ -269,12 +269,12 @@ if ( $data && ! is_wp_error( $data ) ) {
                             if (is_plugin_active($status['file'])) {
                                 $action_links[] = sprintf(
                                     '<button type="button" class="button button-disabled" disabled="disabled">%s</button>',
-                                    esc_html__('Active', 'folders')
+                                    esc_html__('Active', 'chaty')
                                 );
                             } else if (current_user_can('activate_plugin', $status['file'])) {
                                 $button_text = esc_html__( 'Activate', "chaty");
                                 // translators: %s: Plugin name.
-                                $button_label = esc_html__('Activate %s', 'folders');
+                                $button_label = esc_html__('Activate %s', 'chaty');
                                 $activate_url = add_query_arg(
                                     [
                                         '_wpnonce' => wp_create_nonce('activate-plugin_'.$status['file']),
@@ -287,7 +287,7 @@ if ( $data && ! is_wp_error( $data ) ) {
                                 if (is_network_admin()) {
                                     $button_text = esc_html__( 'Network Activate', "chaty");
                                     // translators: %s: Plugin name.
-                                    $button_label = esc_html__('Network Activate %s', 'folders');
+                                    $button_label = esc_html__('Network Activate %s', 'chaty');
                                     $activate_url = add_query_arg([ 'networkwide' => 1 ], $activate_url);
                                 }
 
@@ -300,7 +300,7 @@ if ( $data && ! is_wp_error( $data ) ) {
                             } else {
                                 $action_links[] = sprintf(
                                     '<button type="button" class="button button-disabled" disabled="disabled">%s</button>',
-                                    esc_html__('Installed', 'folders')
+                                    esc_html__('Installed', 'chaty')
                                 );
                             }//end if
                             break;
@@ -347,7 +347,7 @@ if ( $data && ! is_wp_error( $data ) ) {
                     if (! $compatible_php || ! $compatible_wp) {
                         echo '<div class="notice inline notice-error notice-alt"><p>';
                         if (! $compatible_php && ! $compatible_wp) {
-                            esc_html_e('This plugin doesn&#8217;t work with your versions of WordPress and PHP.');
+                            esc_html_e('This plugin doesn&#8217;t work with your versions of WordPress and PHP.', 'chaty');
                             if (current_user_can('update_core') && current_user_can('update_php')) {
                                 printf(
                                 // translators: 1: URL to WordPress Updates screen, 2: URL to Update PHP page.
@@ -380,7 +380,7 @@ if ( $data && ! is_wp_error( $data ) ) {
                                 );
                             }
                         } else if (! $compatible_php) {
-                            esc_html_e('This plugin doesn&#8217;t work with your version of PHP.');
+                            esc_html_e('This plugin doesn&#8217;t work with your version of PHP.', 'chaty');
                             if (current_user_can('update_php')) {
                                 printf(
                                 // translators: %s: URL to Update PHP page.
@@ -441,11 +441,11 @@ if ( $data && ! is_wp_error( $data ) ) {
                                 $active_installs_millions = floor(($plugin['active_installs'] / 1000000));
                                 $active_installs_text     = sprintf(
                                 // translators: %s: Number of millions.
-                                    _nx('%s+ Million', '%s+ Million', $active_installs_millions, 'Active plugin installations'),
+                                    _nx('%s+ Million', '%s+ Million', $active_installs_millions, 'Active plugin installations', 'chaty'),
                                     number_format_i18n($active_installs_millions)
                                 );
                             } else if (0 == $plugin['active_installs']) {
-                                $active_installs_text = esc_html__('Less Than 10', 'folders');
+                                $active_installs_text = esc_html__('Less Than 10', 'chaty');
                             } else {
                                 $active_installs_text = number_format_i18n($plugin['active_installs']).'+';
                             }
@@ -472,8 +472,8 @@ if ( $data && ! is_wp_error( $data ) ) {
             ?>
         </div>
     </div>
-    <div id="hide-recommeded-plugins" style="display:none;" title="<?php esc_html_e('Are you sure?', 'folders');?>">
-        <p><?php esc_html_e("If you hide the recommended plugins page from your menu, it won't appear there again. Are you sure you'd like to do it?", 'folders');?></p>
+    <div id="hide-recommeded-plugins" style="display:none;" title="<?php esc_html_e('Are you sure?', 'chaty');?>">
+        <p><?php esc_html_e("If you hide the recommended plugins page from your menu, it won't appear there again. Are you sure you'd like to do it?", 'chaty');?></p>
     </div>
 
 </div>

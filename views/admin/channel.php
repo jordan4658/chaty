@@ -195,7 +195,7 @@ $isAgent = 0;
 
 ?>
 <!-- Social media setting box: start -->
-<li data-id="<?php echo esc_attr($social['slug']) ?>" class="chaty-channel <?php echo ($isAgent == 1) ? "has-agent-view" : "" ?>" data-channel="<?php echo esc_attr($channelType) ?>" id="chaty-social-<?php echo esc_attr($social['slug']) ?>">
+<li data-id="<?php echo esc_attr($social['slug']) ?>" class="chaty-channel <?php echo ($isAgent == 1) ? "has-agent-view" : "" ?>" data-type="<?php echo esc_attr($social['slug']) ?>" data-channel="<?php echo esc_attr($channelType) ?>" id="chaty-social-<?php echo esc_attr($social['slug']) ?>">
     <!-- channel default settings start -->
     <div class="channels-selected__item <?php echo esc_attr(($status) ? "img-active" : "") ?> free 1 available">
         <!-- icon and input field start -->
@@ -981,7 +981,7 @@ $isAgent = 0;
                                 <?php esc_html_e("Capture IP address", "chaty") ?>
                                 <span class="header-tooltip">
                                 <span class="header-tooltip-text text-center">
-                                    <?php printf(esc_html__("Capture the visitor's IP address when they submit the form.")) ?>
+                                    <?php printf(esc_html__("Capture the visitor's IP address when they submit the form.", 'chaty')) ?>
                                 </span>
                                 <span class="ml-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">

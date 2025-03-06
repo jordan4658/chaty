@@ -20,7 +20,7 @@ if (! defined('ABSPATH')) {
                 <textarea type="text" name="textarea_text" id="textarea_text" placeholder="<?php esc_html_e("How can I help you?", 'chaty'); ?>"></textarea>
             </div>
             <div class="form-button">
-                <button type="submit" class="chaty-help-button" ><?php esc_html_e("Chat") ?></button>
+                <button type="submit" class="chaty-help-button" ><?php esc_html_e("Chat", 'chaty') ?></button>
                 <input type="hidden" name="action" value="wcp_admin_send_message_to_owner"  >
                 <input type="hidden" id="nonce" name="nonce" value="<?php echo esc_attr(wp_create_nonce('chaty_send_message_to_owner')) ?>"  >
             </div>

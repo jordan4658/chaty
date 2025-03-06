@@ -716,6 +716,8 @@ class CHT_Frontend extends CHT_Admin_Base
                     $chaty_updated_on = time();
                 }
 
+                $minified = CHT_DEV_MODE ? '' : '.min';
+
                 // add js for front end widget
                 if (!empty($fontFamily)) {
                     if (!in_array($fontFamily, ["Arial", "Tahoma", "Verdana", "Helvetica", "Times New Roman", "Trebuchet MS", "Georgia", "System Stack", "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"])) {
@@ -726,8 +728,8 @@ class CHT_Frontend extends CHT_Admin_Base
                 $in_footer = apply_filters('show_chaty_script_in_footer', true);
 
                 // WP change this
-                wp_enqueue_style('chaty-front-css', CHT_PLUGIN_URL."css/chaty-front.min.css", [], CHT_VERSION.$chaty_updated_on);
-                wp_enqueue_script("chaty-front-end", CHT_PLUGIN_URL."js/cht-front-script.min.js", [ 'jquery' ], CHT_VERSION.$chaty_updated_on, $in_footer);
+                wp_enqueue_style('chaty-front-css', CHT_PLUGIN_URL."css/chaty-front".esc_attr($minified).".css", [], CHT_VERSION.$chaty_updated_on);
+                wp_enqueue_script("chaty-front-end", CHT_PLUGIN_URL."js/cht-front-script".esc_attr($minified).".js", [ 'jquery' ], CHT_VERSION.$chaty_updated_on, $in_footer);
 
                 if($this->hasEmail) {
                     wp_enqueue_script("chaty-mail-check", CHT_PLUGIN_URL . "admin/assets/js/mailcheck.js", ['jquery'], CHT_VERSION, $in_footer);
@@ -1128,7 +1130,15 @@ class CHT_Frontend extends CHT_Admin_Base
                             $mobileTarget  = "_blank";
                         } else if ($channelType == "instagram") {
                             // setting for Instagram
-                            $url           = "https://www.instagram.com/".esc_attr(trim($val, "@"));
+                            $val = str_replace(["https://www.instagram.com/", "https://ig.me/m/", "@"], ["","", ""], $val);
+                            $url            = "https://www.instagram.com/".esc_attr($val);
+                            $desktopTarget = "_blank";
+                            $mobileTarget  = "_blank";
+                            $url           = esc_url($url);
+                        } else if ($channelType == "instagram_dm") {
+                            // setting for Instagram
+                            $val = str_replace(["https://www.instagram.com/", "https://ig.me/m/", "@"], ["","", ""], $val);
+                            $url            = "https://ig.me/m/".esc_attr($val);
                             $desktopTarget = "_blank";
                             $mobileTarget  = "_blank";
                             $url           = esc_url($url);
@@ -1165,6 +1175,9 @@ class CHT_Frontend extends CHT_Admin_Base
 
                         // Instagram checking for custom color
                         if ($channelType == "instagram" && $value['bg_color'] == "#ffffff") {
+                            $value['bg_color'] = "";
+                        }
+                        if ($channelType == "instagram_dm" && $value['bg_color'] == "#ffffff") {
                             $value['bg_color'] = "";
                         }
 

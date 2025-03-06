@@ -3,11 +3,11 @@ Contributors: galdub, tomeraharon, premio
 Tags: whatsapp, whatsapp chat, facebook messenger, chat, chat button
 Requires at least: 3.1
 Tested up to: 6.7
-Stable tag: 3.3.3
+Stable tag: 3.3.5
 Plugin URI: https://premio.io/downloads/chaty/
 License: GPLv3
 
-🔥 WhatsApp chat, Facebook Messenger, Telegram, TikTok, Viber, Email, Line, WeChat Phone call, SMS, + 20 chat icons, with a WhatsApp chat pop up 💬
+🔥 WhatsApp chat, Facebook Messenger, Telegram, TikTok, Instagram, Email, Line, WeChat Phone call, SMS, + 20 chat icons, with a WhatsApp chat pop up 💬
 
 == Description ==
 
@@ -17,7 +17,7 @@ License: GPLv3
 <a href="https://premio.io/?utm_source=wordpressorg" target="_blank" title="WordPress plugins">Recommended Plugins</a> | <a href="https://premio.io/downloads/chaty/?utm_source=wordpressorg" target="_blank" title="Chaty Pro"><strong>Upgrade to Pro ⭐</strong></a>
 
 * Get WhatsApp, Facebook Messenger & 20+ chat channels
-* Chat with your visitors via their favorite channels like Facebook Messenger, WhatsApp, WhatsApp Business, Viber, Slack, Telegram, TikTok, Line Messenger, and more chat channels
+* Chat with your visitors via their favorite channels like Facebook Messenger, WhatsApp, WhatsApp Business, Viber, Slack, Telegram, Instagram Direct Messenger, TikTok, Line Messenger, and more chat channels
 * Better customer support
 
 [youtube  https://www.youtube.com/watch?v=i6t05AeuyWg]
@@ -26,7 +26,7 @@ License: GPLv3
 Connect on WhatsApp or WhatsApp Business by entering your WhatsApp number. Get WhatsApp features like the WhatsApp popup that emulates a WhatsApp chat window, WhatsApp Merge tags, WhatsApp agents & many other features that’ll help you chat on WhatsApp.
 
 = 📞 Click to chat & call now phone button =
-Chaty is the perfect chat plugin to display a call widget, WhatsApp button, email button, SMS button, TikTok, Google Maps button, Vkontakte button, Line.me messenger button, Viber button, and other chat widgets. Using Chaty your website visitors can chat with you after they leave your website. Want to use our robust Pro version? Check the <a href="https://premio.io/downloads/chaty/?utm_source=wordpressorg" target="_blank" title="Chaty pro plans"><strong>Chaty Pro Plans</strong></a>.
+Chaty is the perfect chat plugin to display a call widget, WhatsApp button, email button, SMS button, TikTok, Instagram Direct Messenger, Google Maps button, Vkontakte button, Line.me messenger button, Viber button, and other chat widgets. Using Chaty your website visitors can chat with you after they leave your website. Want to use our robust Pro version? Check the <a href="https://premio.io/downloads/chaty/?utm_source=wordpressorg" target="_blank" title="Chaty pro plans"><strong>Chaty Pro Plans</strong></a>.
 
 = 💪 What can you do with Chaty =
 
@@ -54,7 +54,8 @@ Facebook Messenger
 Contact Us Form
 Email
 SMS
-Instagram
+Instagram page
+Instagram Direct Messenger
 TikTok (Tik Tok)
 Snapchat
 Launch a <a href="https://www.poptin.com/?utm_source=chatylisting" target="_blank">Poptin pop up</a>
@@ -109,7 +110,7 @@ Get all the features of the free plan, plus:
 5. Change the position of the chat button
 6. Custom design
 7. Show or hide the chat widget using targeting rules
-8. Create more than one chat widget and show it on specific pages and categories of your website based on page targeting rules. For example, display Skype, Whatsapp chat, and a click to call icon for one category, and Facebook Messenger, Telegram, and Line button for another category. 
+8. Create more than one chat widget and show it on specific pages and categories of your website based on page targeting rules. For example, display Skype, WhatsApp chat, and a click to call icon for one category, and Facebook Messenger, Telegram, and Line button for another category. 
 <strong>The main use cases for the multi chat widget are:</strong>
 Separate widget design for mobile and desktop
 Change widget language for WPML and multi-language websites
@@ -169,6 +170,8 @@ In the Pro version, Chaty has many WooCommerce integrations, including dynamic c
 
 * Instagram button - add your Instagram username so your visitors to chat with you using Instagram direct follow you
 
+* Instagram Direct Messenger - a chat button to send an Instagram DM
+
 * TikTok (Tik Tok) button - add your TikTok handle and let your visitors find your TikTok page.
 
 * Twitter (X.com) button - add your Twitter handle and let your visitors chat with your using Twitter X.com messages
@@ -177,7 +180,7 @@ In the Pro version, Chaty has many WooCommerce integrations, including dynamic c
 
 * Skype - add your Skype username and let your visitors call and message you easily via Skype.
 
-* Vkontakte (ВКонтакте) - add your Vkontakte username and let your visitors contact you directly through the app.
+* Vkontakte (ВКонтакте) - add your Vkontakte (ВКонтакте) username and let your visitors contact you directly through the app.
 
 * LinkedIn icon - link to your LinkedIn profile so your visitors can connect with you and send you direct messages.
 
@@ -291,6 +294,16 @@ Yes! You can even decide what chat buttons will show up on each device (desktop/
 
 
 == Changelog ==
+
+= 3.3.5 =
+File upload bug fixed
+Custom field for email sent for leads bug fixed
+Custom channels bug fixed
+Contact form bug fixed
+WhatsApp iOS bug fixed
+
+= 3.3.4 =
+Added a chat button for Instagram Direct Messenger
 
 = 3.3.3 =
 Display bugs fixed
